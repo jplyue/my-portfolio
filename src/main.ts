@@ -68,7 +68,6 @@ let sceneIndex = 1 // Scene1 已经是 opening，现在准备进 Scene2
 let currentLevel = 0
 let gameStarted = false
 let pausedByNote = false
-let activeNoteObstacle: { x: number; width: number; chapterIndex?: number; triggered?: boolean } | null = null
 let playerY = 0
 let velocityY = 0
 let gravity = 0.9
@@ -80,7 +79,6 @@ let obstacles: {
   chapterIndex?: number
   triggered?: boolean
 }[] = []
-let obstacleTimer = 0
 
 let chapterCursor = 0
 
@@ -437,7 +435,6 @@ startLoop(() => {
     // resume after note pause
     if (pausedByNote && Object.values(keys).some(Boolean)) {
       pausedByNote = false
-      activeNoteObstacle = null
     }
 
     // jump
